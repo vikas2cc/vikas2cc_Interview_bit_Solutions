@@ -1,2 +1,3 @@
 # vikas2cc_Interview_bit_Solutions
-# This is my solutions to interviewbit problems.
+# These are my solutions to interviewbit problems.
+# My code_handle on interviewbit is vikas2cc.
