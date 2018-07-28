@@ -1,0 +1,22 @@
+int Solution::lis(const vector<int> &A) {
+    int n=A.size();
+    if(n==1)return 1;
+    int lis[n];
+    //memset(lis,1,sizeof(lis));
+    for(int i=0; i<n; i++)lis[i]=1;
+    
+    for(int i=1; i<n; i++)
+    {
+        for(int j=0; j<i; j++)
+        {
+            if(A[i]>A[j]&&lis[i]<lis[j]+1)
+             lis[i]=lis[j]+1;
+        }
+    }
+    int maxi=INT_MIN;
+    for(int i=0; i<n; i++)
+    {
+        maxi=max(maxi,lis[i]);
+    }
+    return maxi;
+}
