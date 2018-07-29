@@ -1,0 +1,47 @@
+int ispalin(string str)
+{    
+    int n=str.length();
+    if(n==0)return 0;
+    for(int i=0; i<n/2; i++)
+    {
+        if(str[i]!=str[n-i-1])
+        return 0;
+    }
+    return 1;
+}
+ 
+string tostring(char c)
+{
+    string str(1,c);
+    return str;
+}
+ 
+int Solution::anytwo(string A) {
+ 
+    int freq[256];
+    memset(freq,0,sizeof(freq));
+    int n=A.length();
+    for(int i=0; i<n; i++){
+        freq[A[i]]++;
+        if(freq[A[i]]>3)
+         return 1;
+    }
+    int k=0;
+    string str="";
+    for(int i=0; i<n; i++)
+    {
+        if(freq[A[i]]>1)
+          str=str+tostring(A[i]);
+    }
+    ///cout<<str;
+    if(str.length()==0)return 0;
+    if(ispalin(str))
+    {
+        if(str.length()&1)
+        {
+            return (str[str.length()/2]==str[str.length()/2-1]);
+        }
+        return 0;
+    }
+    return 1;
+}
